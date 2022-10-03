@@ -1,0 +1,135 @@
+$main-bg: #f8f9fa;
+$line-color: #dfdfdf;
+$main-font-size: 20px;
+
+@mixin alerts-box-custom($background, $border-color, $font-color) {
+  background: $background;
+  border: 0.5px solid $border-color;
+  color: $font-color;
+}
+@mixin col($width) {
+  float: left;
+  width: $width;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 50%;
+  height: 50vh;
+  margin-top: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+  flex-direction: column;
+  background: $main-bg;
+  @extend %flex-center;
+}
+.list-group {
+  border: 0.5px solid $line-color;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.list-group-item {
+  width: 300px;
+  height: 50px;
+  font-size: $main-font-size;
+  font-weight: 200;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-bottom: 0.5px solid $line-color;
+  transition: all 0.5s;
+}
+
+.list-group-item:first-child {
+  border-radius: 10px 10px 0px 0px;
+}
+
+.list-group-item:last-child {
+  border: none;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.active {
+  background: #0d6efd;
+  color: white;
+}
+
+.alerts {
+  padding: 20px;
+}
+.alerts-box {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  background: #cfe2ff;
+  border: 0.5px solid #b6d4fe;
+  color: #0884df;
+}
+
+.alerts-red {
+  @include alerts-box-custom(#e35183, #ad1457, #78002e);
+}
+
+.alerts-green {
+  @include alerts-box-custom(#439889, #00695c, #003d33);
+}
+.alerts-grey {
+  @include alerts-box-custom(#62727b, #37474f, #102027);
+}
+.alerts-yellow {
+  @include alerts-box-custom(#fff263, #fbc02d, #c49000);
+}
+.alerts-mint {
+  @include alerts-box-custom(#62efff, #00bcd4, #008ba3);
+}
+
+.column {
+  padding: 20px;
+}
+.row {
+  width: 100%;
+  margin: 10px;
+
+  .col-3 {
+    @include col(100%/4);
+  }
+
+  .col-4 {
+    @include col(100%/3);
+  }
+
+  .col-6 {
+    @include col(100%/2);
+  }
+
+  .col-12 {
+    @include col(100%);
+  }
+}

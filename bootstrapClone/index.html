@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+    </div>
+    <div class="container alerts">
+      <div class="alerts-box">
+        <p>A simple primary alert--check it out!</p>
+      </div>
+      <div class="alerts-box alerts-red">
+        <p>A simple primary alert--check it out!</p>
+      </div>
+      <div class="alerts-box alerts-green">
+        <p>A simple primary alert--check it out!</p>
+      </div>
+      <div class="alerts-box alerts-grey">
+        <p>A simple primary alert--check it out!</p>
+      </div>
+      <div class="alerts-box alerts-yellow">
+        <p>A simple primary alert--check it out!</p>
+      </div>
+      <div class="alerts-box alerts-mint">
+        <p>A simple primary alert--check it out!</p>
+      </div>
+    </div>
+    <div class="container column">
+      <div class="row">
+        <div class="col-3 alerts-grey">col-3</div>
+        <div class="col-3">col-3</div>
+        <div class="col-3">col-3</div>
+        <div class="col-3">col-3</div>
+      </div>
+      <div class="row">
+        <div class="col-4 alerts-grey">col-4</div>
+        <div class="col-4">col-4</div>
+        <div class="col-4">col-4</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 alerts-grey">col-6</div>
+        <div class="col-6">col-6</div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 alerts-grey">col-12</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const $listItem = document.querySelectorAll(".list-group-item");
+    const $alertsBox = document.querySelectorAll(".alerts-box");
+    let listCount = 0;
+    $listItem.forEach((e) => {
+      e.addEventListener("mouseover", () => {
+        e.classList.add("active");
+      });
+      e.addEventListener("mouseout", () => {
+        e.classList.remove("active");
+      });
+    });
+
+    $alertsBox.forEach((e) => {
+      e.addEventListener("click", () => {
+        e.style.display = "none";
+      });
+    });
+  </script>
+</html>
