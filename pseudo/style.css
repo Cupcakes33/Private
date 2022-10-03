@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.status {
+  width: 20%;
+  height: 10vh;
+  border: none;
+  border-radius: 25px;
+  background: honeydew;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  background: white;
+  color: red;
+}
+
+progress::-webkit-progress-bar {
+  background: #eee;
+  border-radius: 2px;
+}
+
+.HP progress::-webkit-progress-value {
+  background: red;
+  border-radius: 2px;
+}
+
+.MP progress::-webkit-progress-value {
+  background: blue;
+  border-radius: 2px;
+}
+
+.SP progress::-webkit-progress-value {
+  background: yellow;
+  border-radius: 2px;
+}
