@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 400px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        border: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+        background: rgba(0, 0, 0, 0.2);
+      }
+      .container div {
+        margin-bottom: 20px;
+      }
+
+      .stock {
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        width: 200px;
+        height: 30px;
+      }
+
+      .result {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <span>바지의 갯수 : </span>
+        <input type="text" class="pants" />
+      </div>
+      <div>
+        <span>양말의 갯수 :</span>
+        <input type="text" class="socks" />
+      </div>
+      <div>
+        <button class="stock">가게 재고</button>
+      </div>
+      <span class="result"></span>
+    </div>
+
+    <script>
+      const $stock = document.querySelector(".stock");
+      const $result = document.querySelector(".result");
+      const $pants = document.querySelector(".pants");
+      const $socks = document.querySelector(".socks");
+      $stock.addEventListener("click", () => {
+        let pants = $pants.value;
+        let socks = $socks.value;
+        if (pants === "" || socks === "") {
+          $result.innerHTML = `잘못 입력하셨습니다. 갯수를 확인하고 다시 입력해주세요.`;
+          $pants.value = "";
+          $socks.value = "";
+        } else {
+          $result.innerHTML = stockResult`바지${pants} 양말${socks}`;
+          $pants.value = "";
+          $socks.value = "";
+        }
+      });
+
+      function stockResult(m, n, n1) {
+        if (n === "0" && n1 === "0") {
+          return `남은 재고가 없습니다.`;
+        } else if (n === "0") {
+          return `${m[1]}은 ${n1}개, ${m[0]}는 팔지않습니다.`;
+        } else if (n1 === "0") {
+          return `${m[1]}은 팔지 않고, ${m[0]}는 ${n}개 판매중입니다.`;
+        } else {
+          return `${m[1]}은 ${n1}개, ${m[0]}는 ${n}개 판매중입니다.`;
+        }
+      }
+    </script>
+  </body>
+</html>
