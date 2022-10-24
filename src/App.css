@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fuzzy Bubbles", cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.blog-header {
+  width: 100%;
+  height: 10vh;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(242, 235, 243) 0%,
+    rgb(234, 241, 249) 90.1%
+  );
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.blog-header button {
+  padding: 20px;
+  border-radius: 50%;
+  border: 0.3px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.blog-header a {
+  text-decoration: none;
+  text-shadow: 5px 5px 10px rgba(178, 172, 164, 0.4);
+  color: #b2aca4;
+  font-size: 2em;
+}
+
+.post-wrap {
+  width: 100%;
+  height: 33vh;
+  border-bottom: 0.3px solid rgba(0, 0, 0, 0.2);
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.post-content-wrap p {
+  margin-bottom: 30px;
+}
+.post-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.post-img-wrap {
+  width: 40%;
+  height: 100%;
+  max-width: 330px;
+  max-height: 200px;
+}
+
+.post-img-wrap img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 10px;
+}
+
+.post-button-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-button-wrap button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(242, 235, 243) 0%,
+    rgb(234, 241, 249) 90.1%
+  );
+}
+.heart-box {
+  position: relative;
+}
+.post-delete-button {
+  cursor: pointer;
+}
+.post-heart-button {
+  cursor: pointer;
+}
+
+.post-heart-count {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  font-size: 5px;
+  padding: 2px 2px;
+  border: none;
+  border-radius: 25px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(242, 235, 243) 0%,
+    rgb(234, 241, 249) 90.1%
+  );
+  color: black;
+}
+
+.post-modal-overlay {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.App-link {
-  color: #61dafb;
+.post-modal-window {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(242, 235, 243) 0%,
+    rgb(234, 241, 249) 90.1%
+  );
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 400px;
+  height: 500px;
+  position: relative;
+  padding: 20px;
+  text-shadow: 5px 5px 10px rgba(178, 172, 164, 0.4);
+  color: #b2aca4;
+  font-size: 2em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-wrap {
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.modal-wrap div {
+  margin: 20px 0px;
+}
+
+.modal-wrap input,
+textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 5px;
+  resize: none;
+}
+
+.modal-wrap textarea {
+  height: 8em;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.post-button {
+  float: right;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(242, 235, 243) 0%,
+    rgb(234, 241, 249) 90.1%
+  );
+
+  text-shadow: 5px 5px 10px rgba(178, 172, 164, 0.4);
+  color: #b2aca4;
+  font-size: 1em;
 }
